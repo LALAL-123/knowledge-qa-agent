@@ -1,0 +1,64 @@
+{
+  "title": "c08_tool_failure：工具失败：检索服务持续不可用，不得凭记忆回答（运行 1/1）",
+  "request": {
+    "question": "年假有几天？"
+  },
+  "status": "failed",
+  "stop_reason": "model_finished",
+  "llm": "mock:scripted-policy",
+  "steps": 3,
+  "tool_calls": 2,
+  "final": {
+    "answer": "检索服务暂时不可用，无法查询制度原文，请稍后再试。",
+    "citations": [],
+    "conflicts": [],
+    "gaps": [
+      "检索工具失败"
+    ],
+    "clarifying_question": "",
+    "task_status": "failed",
+    "evidence_check": {
+      "cited_snippets": 0,
+      "unsupported_numbers": [],
+      "snippets_read": 0,
+      "searches": 2
+    }
+  },
+  "guard_corrections": [],
+  "trace": [
+    {
+      "step": 1,
+      "type": "tool_call",
+      "tool": "search_docs",
+      "arguments": {
+        "query": "年假有几天？",
+        "top_k": 5
+      },
+      "decision_note": "先按问题原文检索",
+      "ok": false,
+      "observation": "{\"ok\": false, \"error_type\": \"tool_failure\", \"error\": \"检索服务超时（注入故障）\"}",
+      "recovered_from_text": false
+    },
+    {
+      "step": 2,
+      "type": "tool_call",
+      "tool": "search_docs",
+      "arguments": {
+        "query": "年假有几天？",
+        "top_k": 5
+      },
+      "decision_note": "检索失败（检索服务超时（注入故障）），重试一次",
+      "ok": false,
+      "observation": "{\"ok\": false, \"error_type\": \"tool_failure\", \"error\": \"检索服务超时（注入故障）\"}",
+      "recovered_from_text": false
+    },
+    {
+      "step": 3,
+      "type": "finish",
+      "decision_note": "检索服务连续失败，不能凭记忆回答",
+      "recovered_from_text": false,
+      "status": "failed",
+      "guard_corrections": []
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+{"case_id": "c02_conflict", "title": "文档冲突（参考实例）：D01 写 30 天、D02 写 15 天，未给适用范围与优先级", "covers": ["文档冲突"],
+ "request": {"question": "报销期限多久？"}}

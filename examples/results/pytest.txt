@@ -1,0 +1,41 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.4, pytest-9.1.1, pluggy-1.6.0 -- <本机路径>
+rootdir: <项目根目录>
+configfile: pytest.ini
+testpaths: tests
+plugins: anyio-4.14.1, cov-7.1.0
+collecting ... collected 31 items
+
+tests/test_core.py::test_step_limit_returns_explicit_incomplete PASSED   [  3%]
+tests/test_core.py::test_tool_call_limit_stops_run PASSED                [  6%]
+tests/test_core.py::test_finish_in_same_turn_as_tool_is_rejected PASSED  [  9%]
+tests/test_core.py::test_decision_note_is_traced_but_not_passed_to_tool PASSED [ 12%]
+tests/test_core.py::test_tool_errors_become_observations PASSED          [ 16%]
+tests/test_core.py::test_fault_plan_once_then_recovers PASSED            [ 19%]
+tests/test_core.py::test_llm_exception_returns_failed PASSED             [ 22%]
+tests/test_core.py::test_invalid_finish_is_sent_back_to_model PASSED     [ 25%]
+tests/test_core.py::test_text_reply_without_tool_is_nudged PASSED        [ 29%]
+tests/test_core.py::test_openai_compat_parses_tool_calls_and_bad_json PASSED [ 32%]
+tests/test_core.py::test_text_tool_call_is_recovered_only_with_name_and_json PASSED [ 35%]
+tests/test_core.py::test_agent_executes_recovered_text_call_and_marks_trace PASSED [ 38%]
+tests/test_domain.py::test_search_returns_preview_only_and_both_conflicting_docs PASSED [ 41%]
+tests/test_domain.py::test_colloquial_question_misses_until_rewritten PASSED [ 45%]
+tests/test_domain.py::test_out_of_scope_has_no_hits PASSED               [ 48%]
+tests/test_domain.py::test_doc_overrides_remove_and_replace PASSED       [ 51%]
+tests/test_domain.py::test_guard_drops_unread_or_paraphrased_citations PASSED [ 54%]
+tests/test_domain.py::test_guard_withdraws_answer_with_unsupported_number PASSED [ 58%]
+tests/test_domain.py::test_guard_accepts_supported_answer PASSED         [ 61%]
+tests/test_domain.py::test_guard_marks_failed_when_all_searches_failed PASSED [ 64%]
+tests/test_domain.py::test_case_acceptance_with_offline_mock[c01_clear_answer] PASSED [ 67%]
+tests/test_domain.py::test_case_acceptance_with_offline_mock[c02_conflict] PASSED [ 70%]
+tests/test_domain.py::test_case_acceptance_with_offline_mock[c03_conflict_doc_removed] PASSED [ 74%]
+tests/test_domain.py::test_case_acceptance_with_offline_mock[c04_out_of_scope] PASSED [ 77%]
+tests/test_domain.py::test_case_acceptance_with_offline_mock[c05_paraphrase] PASSED [ 80%]
+tests/test_domain.py::test_case_acceptance_with_offline_mock[c06_followup_context] PASSED [ 83%]
+tests/test_domain.py::test_case_acceptance_with_offline_mock[c07_followup_no_context] PASSED [ 87%]
+tests/test_domain.py::test_case_acceptance_with_offline_mock[c08_tool_failure] PASSED [ 90%]
+tests/test_domain.py::test_case_acceptance_with_offline_mock[c09_tool_failure_once] PASSED [ 93%]
+tests/test_domain.py::test_case_acceptance_with_offline_mock[c10_step_limit] PASSED [ 96%]
+tests/test_domain.py::test_case_acceptance_with_offline_mock[c11_doc_content_changed] PASSED [100%]
+
+============================= 31 passed in 0.08s ==============================

@@ -1,0 +1,3 @@
+{"case_id": "c11_doc_content_changed", "title": "替换文档内容：把 D03 改为年假 7 天，答案必须随原文改变", "covers": ["明确答案"],
+ "request": {"question": "年假有几天？"},
+ "env": {"doc_overrides": {"D03": {"snippets": {"D03-S1": "员工带薪年休假（以下简称年假）：入职满 1 年后每年享有年假 7 天。"}}}}}

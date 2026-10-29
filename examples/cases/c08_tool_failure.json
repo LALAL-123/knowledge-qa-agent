@@ -1,0 +1,3 @@
+{"case_id": "c08_tool_failure", "title": "工具失败：检索服务持续不可用，不得凭记忆回答", "covers": ["工具失败"],
+ "request": {"question": "年假有几天？"},
+ "faults": {"search_docs": {"mode": "always", "error": "检索服务超时（注入故障）"}}}

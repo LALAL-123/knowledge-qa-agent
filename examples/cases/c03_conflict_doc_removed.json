@@ -1,0 +1,3 @@
+{"case_id": "c03_conflict_doc_removed", "title": "替换资料：删除 D02 后同一问题只剩 D01，应依据 D01 回答 30 天", "covers": ["文档冲突", "明确答案"],
+ "request": {"question": "报销期限多久？"},
+ "env": {"doc_overrides": {"D02": null}}}

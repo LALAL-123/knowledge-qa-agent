@@ -1,0 +1,4 @@
+{"case_id": "c06_followup_context", "title": "上下文追问：上一轮问住宿标准，本轮“那二线城市呢？”", "covers": ["上下文追问"],
+ "request": {"question": "那二线城市呢？", "history": [
+   {"role": "user", "content": "出差住宿标准是多少？"},
+   {"role": "assistant", "content": "一线城市（北京、上海、广州、深圳）住宿每晚不超过 500 元（D05-S1）。"}]}}

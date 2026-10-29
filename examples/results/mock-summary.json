@@ -1,0 +1,288 @@
+[
+  {
+    "case_id": "c01_clear_answer",
+    "statuses": "answered",
+    "checks": [
+      {
+        "check": "状态 answered",
+        "ok": true,
+        "detail": "answered"
+      },
+      {
+        "check": "引用 D03-S1",
+        "ok": true,
+        "detail": "{'D03-S1'}"
+      },
+      {
+        "check": "答案包含 5 天",
+        "ok": true,
+        "detail": "依据《员工休假制度（年假）》（D03，2025-07-01 版）：员工带薪年休假（以下简称年假）：累计工作已满 1 年不满 10 年的，年假 5 天；已满 10 年不满 20 年的，年假 10 天；已满 20 年的，年假 15 天。"
+      },
+      {
+        "check": "读取过原文",
+        "ok": true,
+        "detail": ""
+      },
+      {
+        "check": "引用均为原文",
+        "ok": true,
+        "detail": "[]"
+      }
+    ]
+  },
+  {
+    "case_id": "c02_conflict",
+    "statuses": "conflict_needs_confirmation",
+    "checks": [
+      {
+        "check": "状态 conflict_needs_confirmation",
+        "ok": true,
+        "detail": "conflict_needs_confirmation"
+      },
+      {
+        "check": "同时引用 D01-S1 与 D02-S1",
+        "ok": true,
+        "detail": "{'D02-S1', 'D01-S1'}"
+      },
+      {
+        "check": "冲突列出 D01 与 D02",
+        "ok": true,
+        "detail": "{'D02', 'D01'}"
+      },
+      {
+        "check": "答案同时给出 30 与 15，不擅自选一个",
+        "ok": true,
+        "detail": "资料存在冲突：D01《费用报销管理办法》（2025-03-01 版，适用范围：未注明）：报销期限：员工应在费用发生后 30 天内提交报销申请，逾期不予受理。；D02《差旅与报销补充说明》（2026-01-15 版，适用范围：未注明）：报销时限为费用发生后 15 天内，请各部门及时提交。。文件均未说明适用范围和优先级，不能确定以哪份为准。"
+      },
+      {
+        "check": "提出确认问题",
+        "ok": true,
+        "detail": "请确认您适用哪份制度，或向制度归口部门确认现行口径。"
+      },
+      {
+        "check": "引用均为原文",
+        "ok": true,
+        "detail": "[]"
+      }
+    ]
+  },
+  {
+    "case_id": "c03_conflict_doc_removed",
+    "statuses": "answered",
+    "checks": [
+      {
+        "check": "状态 answered（冲突消失）",
+        "ok": true,
+        "detail": "answered"
+      },
+      {
+        "check": "依据 D01-S1 回答 30 天",
+        "ok": true,
+        "detail": "依据《费用报销管理办法》（D01，2025-03-01 版）：报销期限：员工应在费用发生后 30 天内提交报销申请，逾期不予受理。"
+      },
+      {
+        "check": "不再出现 15 天",
+        "ok": true,
+        "detail": ""
+      },
+      {
+        "check": "引用均为原文",
+        "ok": true,
+        "detail": "[]"
+      }
+    ]
+  },
+  {
+    "case_id": "c04_out_of_scope",
+    "statuses": "out_of_scope",
+    "checks": [
+      {
+        "check": "状态 out_of_scope",
+        "ok": true,
+        "detail": "out_of_scope"
+      },
+      {
+        "check": "没有引用",
+        "ok": true,
+        "detail": "set()"
+      },
+      {
+        "check": "写明资料缺口",
+        "ok": true,
+        "detail": "['知识库中没有关于“公司股票期权怎么行权？”的文档']"
+      },
+      {
+        "check": "尝试过检索",
+        "ok": true,
+        "detail": ""
+      }
+    ]
+  },
+  {
+    "case_id": "c05_paraphrase",
+    "statuses": "answered",
+    "checks": [
+      {
+        "check": "状态 answered",
+        "ok": true,
+        "detail": "answered"
+      },
+      {
+        "check": "与 c01 相同依据 D03-S1",
+        "ok": true,
+        "detail": "{'D03-S1'}"
+      },
+      {
+        "check": "做了查询改写（检索词不是原问题）",
+        "ok": true,
+        "detail": "['入职三年了，每年能歇多久？', '年假 天数']"
+      },
+      {
+        "check": "引用均为原文",
+        "ok": true,
+        "detail": "[]"
+      }
+    ]
+  },
+  {
+    "case_id": "c06_followup_context",
+    "statuses": "answered",
+    "checks": [
+      {
+        "check": "状态 answered",
+        "ok": true,
+        "detail": "answered"
+      },
+      {
+        "check": "引用 D05-S2（二线城市）",
+        "ok": true,
+        "detail": "{'D05-S2'}"
+      },
+      {
+        "check": "答案为 350 元",
+        "ok": true,
+        "detail": "依据《差旅住宿标准》（D05，2026-02-01 版）：二线城市住宿每晚不超过 350 元；其他城市不超过 250 元。"
+      },
+      {
+        "check": "检索时补全了“住宿”指代",
+        "ok": true,
+        "detail": ""
+      },
+      {
+        "check": "引用均为原文",
+        "ok": true,
+        "detail": "[]"
+      }
+    ]
+  },
+  {
+    "case_id": "c07_followup_no_context",
+    "statuses": "needs_clarification",
+    "checks": [
+      {
+        "check": "状态 needs_clarification",
+        "ok": true,
+        "detail": "needs_clarification"
+      },
+      {
+        "check": "提出澄清问题",
+        "ok": true,
+        "detail": "请问您指的是哪项制度或产品？"
+      },
+      {
+        "check": "没有给出带数字的答案",
+        "ok": true,
+        "detail": "这个问题需要上下文才能回答。"
+      }
+    ]
+  },
+  {
+    "case_id": "c08_tool_failure",
+    "statuses": "failed",
+    "checks": [
+      {
+        "check": "状态 failed",
+        "ok": true,
+        "detail": "failed"
+      },
+      {
+        "check": "没有引用、没有数字答案",
+        "ok": true,
+        "detail": "检索服务暂时不可用，无法查询制度原文，请稍后再试。"
+      },
+      {
+        "check": "写明失败原因",
+        "ok": true,
+        "detail": ""
+      }
+    ]
+  },
+  {
+    "case_id": "c09_tool_failure_once",
+    "statuses": "answered",
+    "checks": [
+      {
+        "check": "读取失败后有重试",
+        "ok": true,
+        "detail": ""
+      },
+      {
+        "check": "状态 answered，引用 D04-S3",
+        "ok": true,
+        "detail": "{'D04-S3'}"
+      },
+      {
+        "check": "答案为 10 米",
+        "ok": true,
+        "detail": "依据《X1 运动相机产品 FAQ》（D04，2026-05-10 版）：X1 机身防水深度 10 米，无需额外防水壳。"
+      },
+      {
+        "check": "引用均为原文",
+        "ok": true,
+        "detail": "[]"
+      }
+    ]
+  },
+  {
+    "case_id": "c10_step_limit",
+    "statuses": "incomplete",
+    "checks": [
+      {
+        "check": "返回明确未完成状态",
+        "ok": true,
+        "detail": "incomplete"
+      },
+      {
+        "check": "决策轮数不超过上限",
+        "ok": true,
+        "detail": "2"
+      },
+      {
+        "check": "未给出答案",
+        "ok": true,
+        "detail": ""
+      }
+    ]
+  },
+  {
+    "case_id": "c11_doc_content_changed",
+    "statuses": "answered",
+    "checks": [
+      {
+        "check": "答案随原文改为 7 天",
+        "ok": true,
+        "detail": "依据《员工休假制度（年假）》（D03，2025-07-01 版）：员工带薪年休假（以下简称年假）：入职满 1 年后每年享有年假 7 天。"
+      },
+      {
+        "check": "不再出现旧口径 5 天",
+        "ok": true,
+        "detail": ""
+      },
+      {
+        "check": "引用均为原文",
+        "ok": true,
+        "detail": "[]"
+      }
+    ]
+  }
+]

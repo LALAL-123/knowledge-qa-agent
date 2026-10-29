@@ -1,0 +1,2 @@
+{"case_id": "c07_followup_no_context", "title": "无上下文的追问：无法确定指代，应追问用户", "covers": ["上下文追问"],
+ "request": {"question": "那二线城市呢？"}}

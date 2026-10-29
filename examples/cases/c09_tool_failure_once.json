@@ -1,0 +1,3 @@
+{"case_id": "c09_tool_failure_once", "title": "工具偶发失败：片段读取第一次失败，重试后正常回答", "covers": ["工具失败", "明确答案"],
+ "request": {"question": "X1 防水多深？"},
+ "faults": {"read_snippet": {"mode": "once", "error": "片段服务 502（注入故障）"}}}

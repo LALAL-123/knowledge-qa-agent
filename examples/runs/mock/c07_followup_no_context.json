@@ -1,0 +1,36 @@
+{
+  "title": "c07_followup_no_context：无上下文的追问：无法确定指代，应追问用户（运行 1/1）",
+  "request": {
+    "question": "那二线城市呢？"
+  },
+  "status": "needs_clarification",
+  "stop_reason": "model_finished",
+  "llm": "mock:scripted-policy",
+  "steps": 1,
+  "tool_calls": 0,
+  "final": {
+    "answer": "这个问题需要上下文才能回答。",
+    "citations": [],
+    "conflicts": [],
+    "gaps": [],
+    "clarifying_question": "请问您指的是哪项制度或产品？",
+    "task_status": "needs_clarification",
+    "evidence_check": {
+      "cited_snippets": 0,
+      "unsupported_numbers": [],
+      "snippets_read": 0,
+      "searches": 0
+    }
+  },
+  "guard_corrections": [],
+  "trace": [
+    {
+      "step": 1,
+      "type": "finish",
+      "decision_note": "问题是追问但没有上下文，无法确定指代",
+      "recovered_from_text": false,
+      "status": "needs_clarification",
+      "guard_corrections": []
+    }
+  ]
+}

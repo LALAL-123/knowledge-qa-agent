@@ -1,0 +1,68 @@
+{
+  "title": "c08_tool_failure：工具失败：检索服务持续不可用，不得凭记忆回答（运行 1/1）",
+  "request": {
+    "question": "年假有几天？"
+  },
+  "status": "failed",
+  "stop_reason": "model_finished",
+  "llm": "openai-compat:glm-4-flash",
+  "steps": 4,
+  "tool_calls": 2,
+  "final": {
+    "answer": "很抱歉，目前无法从公司制度与产品 FAQ 中找到关于年假天数的具体信息。您可以稍后再试，或者联系人力资源部门获取相关信息。",
+    "citations": [],
+    "conflicts": [],
+    "gaps": [
+      "关于年假天数的具体信息"
+    ],
+    "clarifying_question": "",
+    "task_status": "failed",
+    "evidence_check": {
+      "cited_snippets": 0,
+      "unsupported_numbers": [],
+      "snippets_read": 0,
+      "searches": 2
+    }
+  },
+  "guard_corrections": [
+    "检索全部失败，状态校正为 failed"
+  ],
+  "trace": [
+    {
+      "step": 1,
+      "type": "tool_call",
+      "tool": "search_docs",
+      "arguments": {
+        "query": "年假天数"
+      },
+      "decision_note": "根据问题，搜索关于年假天数的公司制度规定。",
+      "ok": false,
+      "observation": "{\"ok\": false, \"error_type\": \"tool_failure\", \"error\": \"检索服务超时（注入故障）\"}"
+    },
+    {
+      "step": 2,
+      "type": "tool_call",
+      "tool": "search_docs",
+      "arguments": {
+        "query": "员工年假天数"
+      },
+      "decision_note": "由于第一次检索失败，尝试使用同义词进行检索。",
+      "ok": false,
+      "observation": "{\"ok\": false, \"error_type\": \"tool_failure\", \"error\": \"检索服务超时（注入故障）\"}"
+    },
+    {
+      "step": 3,
+      "type": "no_tool_call",
+      "content": "很抱歉，目前无法从公司制度与产品 FAQ 中找到关于年假天数的具体信息。您可以稍后再试，或者联系人力资源部门获取相关信息。"
+    },
+    {
+      "step": 4,
+      "type": "finish",
+      "decision_note": "根据检索结果，无法找到关于年假天数的具体信息。",
+      "status": "failed",
+      "guard_corrections": [
+        "检索全部失败，状态校正为 failed"
+      ]
+    }
+  ]
+}

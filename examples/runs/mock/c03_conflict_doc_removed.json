@@ -1,0 +1,84 @@
+{
+  "title": "c03_conflict_doc_removed：替换资料：删除 D02 后同一问题只剩 D01，应依据 D01 回答 30 天（运行 1/1）",
+  "request": {
+    "question": "报销期限多久？"
+  },
+  "status": "answered",
+  "stop_reason": "model_finished",
+  "llm": "mock:scripted-policy",
+  "steps": 4,
+  "tool_calls": 3,
+  "final": {
+    "answer": "依据《费用报销管理办法》（D01，2025-03-01 版）：报销期限：员工应在费用发生后 30 天内提交报销申请，逾期不予受理。",
+    "citations": [
+      {
+        "doc_id": "D01",
+        "snippet_id": "D01-S1",
+        "quote": "报销期限：员工应在费用发生后 30 天内提交报销申请，逾期不予受理。",
+        "title": "费用报销管理办法",
+        "version_date": "2025-03-01",
+        "scope": "未注明"
+      }
+    ],
+    "conflicts": [],
+    "gaps": [],
+    "clarifying_question": "",
+    "task_status": "answered",
+    "evidence_check": {
+      "cited_snippets": 1,
+      "unsupported_numbers": [],
+      "snippets_read": 2,
+      "searches": 1
+    }
+  },
+  "guard_corrections": [],
+  "trace": [
+    {
+      "step": 1,
+      "type": "tool_call",
+      "tool": "search_docs",
+      "arguments": {
+        "query": "报销期限多久？",
+        "top_k": 5
+      },
+      "decision_note": "先按问题原文检索",
+      "ok": true,
+      "observation": "{\"query\": \"报销期限多久？\", \"count\": 2, \"hits\": [{\"doc_id\": \"D01\", \"snippet_id\": \"D01-S1\", \"title\": \"费用报销管理办法\", \"version_date\": \"2025-03-01\", \"score\": 3, \"preview\": \"报销期限：员工应在费用发生后 3…\"}, {\"doc_id\": \"D01\", \"snippet_id\": \"D01-S2\", \"title\": \"费用报销管理办法\", \"version_date\": \"2025-03-01\", \"score\": 1, \"preview\": \"报销需附合规发票，发票抬头须与公…\"}], \"note\": \"预览不可作为引用依据，请用 read_snippet 读取原文\"…",
+      "recovered_from_text": false
+    },
+    {
+      "step": 2,
+      "type": "tool_call",
+      "tool": "read_snippet",
+      "arguments": {
+        "doc_id": "D01",
+        "snippet_id": "D01-S1"
+      },
+      "decision_note": "读取 D01-S1 原文以核对",
+      "ok": true,
+      "observation": "{\"doc_id\": \"D01\", \"snippet_id\": \"D01-S1\", \"title\": \"费用报销管理办法\", \"version_date\": \"2025-03-01\", \"scope\": \"未注明\", \"text\": \"报销期限：员工应在费用发生后 30 天内提交报销申请，逾期不予受理。\", \"ok\": true}",
+      "recovered_from_text": false
+    },
+    {
+      "step": 3,
+      "type": "tool_call",
+      "tool": "read_snippet",
+      "arguments": {
+        "doc_id": "D01",
+        "snippet_id": "D01-S2"
+      },
+      "decision_note": "读取 D01-S2 原文以核对",
+      "ok": true,
+      "observation": "{\"doc_id\": \"D01\", \"snippet_id\": \"D01-S2\", \"title\": \"费用报销管理办法\", \"version_date\": \"2025-03-01\", \"scope\": \"未注明\", \"text\": \"报销需附合规发票，发票抬头须与公司名称一致。\", \"ok\": true}",
+      "recovered_from_text": false
+    },
+    {
+      "step": 4,
+      "type": "finish",
+      "decision_note": "D01-S1 原文直接回答了问题，且读取的片段之间无冲突",
+      "recovered_from_text": false,
+      "status": "answered",
+      "guard_corrections": []
+    }
+  ]
+}
